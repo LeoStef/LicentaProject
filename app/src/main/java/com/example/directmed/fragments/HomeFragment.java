@@ -1,18 +1,18 @@
 package com.example.directmed.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
+import com.example.directmed.MedicamentActivity;
 import com.example.directmed.R;
 import com.example.directmed.data.Medicament;
 import com.example.directmed.data.MedicamentAdapter;
@@ -41,12 +41,14 @@ public class HomeFragment extends Fragment {
         listView = view.findViewById(R.id.listViewMed);
 
         medicaments.add(new Medicament("Nurofen","cap",25.50,"Catena"));
-        medicaments.add(new Medicament("Algocalmin","calmare",69.69,"Tei")2);
+        medicaments.add(new Medicament("Algocalmin","calmare",69.69,"Tei"));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getContext(), MedicamentActivity.class);
+                intent.putExtra("key",medicamentsFiltered.get(position));
+                startActivity(intent);
             }
         });
 
