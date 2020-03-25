@@ -40,8 +40,8 @@ public class HomeFragment extends Fragment {
         searchView = view.findViewById(R.id.search_view);
         listView = view.findViewById(R.id.listViewMed);
 
-        medicaments.add(new Medicament("Nurofen","cap",25.50,"Catena"));
-        medicaments.add(new Medicament("Algocalmin","calmare",69.69,"Tei"));
+        medicaments.add(new Medicament("Nurofen","Raceala si gripa",25.50,"Catena","https://farmacia-abc.ro/wp-content/uploads/2017/02/Nurofen-express-forte-400mg-pret-farmacie-online-abc.jpg"));
+        medicaments.add(new Medicament("Algocalmin","antiinflamator",20.20,"Dona","https://www.catena.ro/assets/uploads/product_images/5b464-79.jpg"));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
