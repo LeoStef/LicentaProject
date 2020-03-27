@@ -3,21 +3,32 @@ package com.example.directmed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 
-
+@Entity
 public class Medicament implements Parcelable {
+
+    @PrimaryKey(autoGenerate = true)
+    public int id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "type")
     private String type;
+    @ColumnInfo(name = "price")
     private double price;
-    private String farmacie;
+    @ColumnInfo(name = "pharmacy")
+    private String pharmacy;
+    @ColumnInfo(name = "imageURL")
     private String imageURL;
 
-    public Medicament(String name, String type, double price, String farmacie, String imageURL) {
+    public Medicament(String name, String type, double price, String pharmacy, String imageURL) {
         this.name = name;
         this.type = type;
         this.price = price;
-        this.farmacie = farmacie;
+        this.pharmacy = pharmacy;
         this.imageURL = imageURL;
     }
 
@@ -26,7 +37,7 @@ public class Medicament implements Parcelable {
         name = in.readString();
         type = in.readString();
         price = in.readDouble();
-        farmacie = in.readString();
+        pharmacy = in.readString();
         imageURL = in.readString();
     }
 
@@ -37,7 +48,7 @@ public class Medicament implements Parcelable {
         dest.writeString(name);
         dest.writeString(type);
         dest.writeDouble(price);
-        dest.writeString(farmacie);
+        dest.writeString(pharmacy);
         dest.writeString(imageURL);
     }
 
@@ -58,45 +69,25 @@ public class Medicament implements Parcelable {
         }
     };
 
-    public String getName() {
-        return name;
-    }
+    public String getName() {return name;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) {this.name = name;}
 
-    public String getType() {
-        return type;
-    }
+    public String getType() {return type;}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public void setType(String type) {this.type = type;}
 
-    public double getPrice() {
-        return price;
-    }
+    public double getPrice() {return price;}
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public void setPrice(double price) {this.price = price;}
 
-    public String getFarmacie() {
-        return farmacie;
-    }
+    public String getPharmacy() {return pharmacy;}
 
-    public void setFarmacie(String farmacie) {
-        this.farmacie = farmacie;
-    }
+    public void setPharmacy(String pharmacy) {this.pharmacy = pharmacy;}
 
-    public String getImageURL() {
-        return imageURL;
-    }
+    public String getImageURL() {return imageURL;}
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+    public void setImageURL(String imageURL) {this.imageURL = imageURL;}
 
 
 
