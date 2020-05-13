@@ -18,16 +18,16 @@ public class Medicament implements Parcelable {
     @ColumnInfo(name = "type")
     private String type;
     @ColumnInfo(name = "price")
-    private double price;
+    private double pret;
     @ColumnInfo(name = "pharmacy")
     private String pharmacy;
     @ColumnInfo(name = "imageURL")
     private String imageURL;
 
-    public Medicament(String name, String type, double price, String pharmacy, String imageURL) {
+    public Medicament(String name, String type, double pret, String pharmacy, String imageURL) {
         this.name = name;
         this.type = type;
-        this.price = price;
+        this.pret = pret;
         this.pharmacy = pharmacy;
         this.imageURL = imageURL;
     }
@@ -36,7 +36,7 @@ public class Medicament implements Parcelable {
     protected Medicament(Parcel in) {
         name = in.readString();
         type = in.readString();
-        price = in.readDouble();
+        pret = in.readDouble();
         pharmacy = in.readString();
         imageURL = in.readString();
     }
@@ -47,7 +47,7 @@ public class Medicament implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeString(type);
-        dest.writeDouble(price);
+        dest.writeDouble(pret);
         dest.writeString(pharmacy);
         dest.writeString(imageURL);
     }
@@ -77,9 +77,9 @@ public class Medicament implements Parcelable {
 
     public void setType(String type) {this.type = type;}
 
-    public double getPrice() {return price;}
+    public double getPret() {return pret;}
 
-    public void setPrice(double price) {this.price = price;}
+    public void setPret(double price) {this.pret = price;}
 
     public String getPharmacy() {return pharmacy;}
 
@@ -96,7 +96,7 @@ public class Medicament implements Parcelable {
         return "Medicament{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
-                ", price=" + price +
+                ", price=" + pret +
                 '}';
     }
 }

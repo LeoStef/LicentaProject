@@ -35,7 +35,7 @@ public class MedicamentAdapter extends ArrayAdapter<Medicament> {
         Medicament medicament = getItem(position);
         name.setText(medicament.getName());
         type.setText(medicament.getType());
-        price.setText(medicament.getPrice() + "");
+        price.setText(medicament.getPret() + "");
         farmacie.setText(medicament.getPharmacy());
         return view;
     }

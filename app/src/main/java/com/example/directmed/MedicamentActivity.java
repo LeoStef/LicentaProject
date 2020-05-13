@@ -29,7 +29,7 @@ public class MedicamentActivity extends AppCompatActivity {
         Medicament medicament = getIntent().getParcelableExtra("key");
         nume.setText(medicament.getName());
         categorie.setText(medicament.getType());
-        pret.setText(Double.toString(medicament.getPrice()));
+        pret.setText(Double.toString(medicament.getPret()));
         farmacie.setText(medicament.getPharmacy());
         Picasso.get().load(medicament.getImageURL()).into(poza);
 

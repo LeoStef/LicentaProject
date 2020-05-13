@@ -1,6 +1,7 @@
 package com.example.directmed.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.directmed.MedicamentActivity;
 import com.example.directmed.R;
+import com.example.directmed.data.DataBase;
 import com.example.directmed.data.Medicament;
 import com.example.directmed.data.MedicamentAdapter;
 
@@ -27,15 +29,22 @@ public class HomeFragment extends Fragment {
     ListView listView;
     ArrayList<Medicament> medicaments = new ArrayList<>();
     ArrayList<Medicament> medicamentsFiltered = new ArrayList<>();
+    DataBase db;
+
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        db = DataBase.getInstance(getActivity());
 
         searchView = view.findViewById(R.id.search_view);
         listView = view.findViewById(R.id.listViewMed);
@@ -48,6 +57,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), MedicamentActivity.class);
                 intent.putExtra("key",medicamentsFiltered.get(position));
+                db.getDatabase().medicamentDAO().insertMeds(medicamentsFiltered.get(position));
                 startActivity(intent);
             }
         });

@@ -12,4 +12,5 @@
     <string name="medicamentActivity_tip">Categorie:</string>
     <string name="medicamentActivity_pret">Pret:</string>
     <string name="medicamentActivity_farmacie">Farmacie:</string>
+    <string name="button_reset">Reset</string>
 </resources>
