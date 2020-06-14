@@ -13,4 +13,10 @@
     <string name="medicamentActivity_pret">Pret:</string>
     <string name="medicamentActivity_farmacie">Farmacie:</string>
     <string name="button_reset">Reset</string>
+    <string name="updateStr">Update</string>
+    <string name="AddCartButton">Add to Cart</string>
+    <string name="Cart">Cart</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="routeFind">Find Route</string>
+    <string name="google_maps_key">AIzaSyDt4IhKiNRziVzTfjHPxa-dDEfWrS4ITMY</string>
 </resources>

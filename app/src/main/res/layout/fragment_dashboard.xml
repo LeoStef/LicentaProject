@@ -8,11 +8,19 @@
 
     <ListView
         android:id="@+id/listViewHistory"
-        android:layout_width="407dp"
-        android:layout_height="442dp"
+        android:layout_width="398dp"
+        android:layout_height="363dp"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_route"
+        android:layout_width="411dp"
+        android:layout_height="58dp"
+        android:text="@string/routeFind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_reset" />
 
     <Button
         android:id="@+id/button_reset"

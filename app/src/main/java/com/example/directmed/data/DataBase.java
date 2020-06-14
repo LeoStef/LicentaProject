@@ -10,7 +10,7 @@ public class DataBase {
     private LocalDatabase database;
 
 
-    private DataBase(Context context){
+    public DataBase(Context context){
         database = Room.databaseBuilder(context,LocalDatabase.class,"med_db").allowMainThreadQueries().build();
     }
 
