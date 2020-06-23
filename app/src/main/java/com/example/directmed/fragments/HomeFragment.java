@@ -73,7 +73,8 @@ public class HomeFragment extends Fragment {
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jsonListUpdate("http://192.168.194.249:5000/catena");
+                jsonListUpdate("http://192.168.100.2:5000/catena");
+                jsonListUpdate("http://192.168.100.2:5000/tei");
             }
         });
 
@@ -121,19 +122,16 @@ public class HomeFragment extends Fragment {
                         String name = med.getString("name");
                         String type = med.getString("categorie");
                         String pret = med.getString("pret");
-                        String farmacie = "farmacie";
-                        switch (switchURL) {
-                            case "http://192.168.194.249:5000/catena":
-                                farmacie = "Catena";
-                        }
+                        String farmacie = med.getString("pharmacy");
 
-                        String imageURL = med.getString("pic");
+
+                        String imageURL = med.getString("imageURL");
                         if (Double.parseDouble(pret) != 1.0) {
                             if(name.length()>25){
                                 name = name.substring(0,25);
                                 name = name + "...";
                             }
-                            Medicament medicament = new Medicament(name, type, Double.parseDouble(pret), "catena", imageURL);
+                            Medicament medicament = new Medicament(name, type, Double.parseDouble(pret), farmacie, imageURL);
                             medicaments.add(medicament);
                         }
                     }

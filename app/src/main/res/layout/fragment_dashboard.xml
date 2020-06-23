@@ -8,8 +8,10 @@
 
     <ListView
         android:id="@+id/listViewHistory"
-        android:layout_width="398dp"
-        android:layout_height="363dp"
+        android:layout_width="413dp"
+        android:layout_height="284dp"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="4dp"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,8 +28,19 @@
         android:id="@+id/button_reset"
         android:layout_width="411dp"
         android:layout_height="55dp"
+        android:layout_marginTop="28dp"
         android:text="@string/button_reset"
         app:layout_constraintStart_toStartOf="@+id/listViewHistory"
+        app:layout_constraintTop_toBottomOf="@+id/listViewHistory" />
+
+    <TextView
+        android:id="@+id/textTotal"
+        android:layout_width="90dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/lv_background"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewHistory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

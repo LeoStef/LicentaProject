@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.directmed.fragments.DashboardFragment"
-        android:label="@string/History_title"
+        android:label="Cart"
         tools:layout="@layout/fragment_dashboard" />
 
 </navigation>

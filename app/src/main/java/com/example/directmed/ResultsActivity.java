@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.directmed.data.ResultAdapter;
 import com.example.directmed.data.ResultItem;
@@ -21,7 +22,6 @@ public class ResultsActivity extends AppCompatActivity {
 
      ArrayList<ResultItem> resultItems = new ArrayList<>();
      ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

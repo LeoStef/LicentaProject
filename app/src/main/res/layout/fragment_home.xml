@@ -2,7 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFAFA"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/MedSearchTitle" />
 
     <SearchView
         android:id="@+id/search_view"
@@ -10,13 +18,17 @@
         android:layout_height="68dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp" >
+        android:layout_marginTop="10dp"
+        android:background="@drawable/lv_backgroundwhite">
 
     </SearchView>
 
     <ListView
         android:id="@+id/listViewMed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="634dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:dividerHeight="5dp" />
 
 </LinearLayout>

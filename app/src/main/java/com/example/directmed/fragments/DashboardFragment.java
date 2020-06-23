@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -47,9 +48,11 @@ public class DashboardFragment extends Fragment {
     RequestQueue nQueue;
     ArrayList<Double> userCoordinates = new ArrayList<>();
     String distanceResult;
+    TextView textViewTotal;
 
     public DashboardFragment() {
-        distanceResult = "lol";
+        distanceResult = "";
+
     }
 
 
@@ -58,6 +61,8 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         nQueue = Volley.newRequestQueue(this.getContext());
+
+
         GetUserLocation();
         GetResults("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDt4IhKiNRziVzTfjHPxa-dDEfWrS4ITMY&input=catena&inputtype=textquery&fields=formatted_address&location="+ userCoordinates.get(0) +
                 "," + userCoordinates.get(1) +"&radius=1000",userCoordinates);
@@ -65,6 +70,12 @@ public class DashboardFragment extends Fragment {
        // GETLocations("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDt4IhKiNRziVzTfjHPxa-dDEfWrS4ITMY&input=catena&inputtype=textquery&fields=formatted_address","catena");
         listView = view.findViewById(R.id.listViewHistory);
         storedMeds = db.getDatabase().medicamentDAO().getAll();
+        textViewTotal = view.findViewById(R.id.textTotal);
+        Double total = 0.0;
+        for(Medicament medicament : storedMeds){
+            total+= medicament.getPret();
+        }
+        textViewTotal.setText(Double.toString((total.shortValue())));
         MedicamentAdapter adapter = new MedicamentAdapter(getActivity(), R.layout.adapter_medicament, storedMeds);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,7 +88,6 @@ public class DashboardFragment extends Fragment {
         });
         //routeButton
         routeButton = view.findViewById(R.id.button_route);
-
         routeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +106,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 db.getDatabase().clearAllTables();
                 storedMeds.clear();
+                textViewTotal.setText("0");
                 MedicamentAdapter adapter = new MedicamentAdapter(getActivity(), R.layout.adapter_medicament, storedMeds);
                 listView.setAdapter(adapter);
             }
